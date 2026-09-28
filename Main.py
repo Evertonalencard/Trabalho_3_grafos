@@ -2,8 +2,7 @@ from Dados import adjacencia
 from Verificacao import graus_vertices, classificar_euleriano, eh_conexo, listaIndexada
 from Inicio import escolher_inicio
 from Fleury import caminho_fleury
-
-
+from front import desenhar_grafo, desenhar_tour, animar_tour, mostrar
 
 
 if __name__ == "__main__":
@@ -25,3 +24,11 @@ if __name__ == "__main__":
     print("Passo 3")
     caminho = caminho_fleury(adjacencia, inicio)
     print("Caminho euleriano:", " -> ".join(caminho))
+    if caminho[0] == caminho[-1]:
+        print("Começa e termina no mesmo vértice: é um CIRCUITO (Tour de Euler).")
+    print("--------------------------------")
+    print("Passo 4 - Visualização")
+    desenhar_grafo(adjacencia)
+    desenhar_tour(adjacencia, caminho)
+    animar_tour(adjacencia, caminho)
+    mostrar()
